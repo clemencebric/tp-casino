@@ -7,7 +7,9 @@ class RouletteController {
         require_once ROOT . "/views/roulette.php";
         require_once ROOT . "/templates/global.php";
     }
-
+    // Symboles et leurs poids (proba d'apparition)
+// Chaque symbole a une probabilité spécifique d’apparaître. Les symboles
+//avec des gains élevés sont rendus plus rares.
 
     public static function play() {
         header('Content-Type: application/json');
@@ -21,7 +23,7 @@ class RouletteController {
             '💎' => 5,
         ];
     
- 
+        // Table des gains (combinaison => gain)
         $paytable = [
             '🍋🍋🍋' => 40,
             '🍒🍒🍒' => 50,
@@ -30,15 +32,15 @@ class RouletteController {
             '💎💎💎' => 200,
         ];
     
-
+        // Générer 3 symboles
         $reel1 = self::getRandomSymbol($symbols_with_weights);
         $reel2 = self::getRandomSymbol($symbols_with_weights);
         $reel3 = self::getRandomSymbol($symbols_with_weights);
-    
+        // Résultat de la machine à sous
         $combination = $reel1 . $reel2 . $reel3;
-    
+        // Calculer le gain
         $gain = $paytable[$combination] ?? 0;
-    
+        // Réponse JSON
         echo json_encode([
             'success' => true,
             'reels' => [$reel1, $reel2, $reel3],
