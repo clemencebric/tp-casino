@@ -13,7 +13,7 @@ ob_start();
 <section class="container">
         <div class="carte-roulette">
         <h1 class="main-articles-title">
-            bienvenue sur la roulette !
+        🎰Machine à sous🎰
         </h1>
   
         <div class="dessous-roulette">
@@ -22,7 +22,7 @@ ob_start();
             <div class="reel" id="reel2">🍒</div>
             <div class="reel" id="reel3">🍒</div>
         </div>
-            <button id="spinButton">Lancer</button>
+            <button id="spinButton">🎲Spin!</button>
             <div id="result" class="partie-message">Essayez de tirer !</div>
         </article>
         </div>
